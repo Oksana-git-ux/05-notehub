@@ -7,9 +7,10 @@ import css from './NoteList.module.css';
 
 interface NoteListProps {
     notes: Note[];
+    currentPage: number;
 }
 
-const NoteList: React.FC<NoteListProps> = ({ notes }) => {
+const NoteList: React.FC<NoteListProps> = ({ notes, currentPage: _currentPage }) => {
     const queryClient = useQueryClient();
 
     const deleteMutation = useMutation({

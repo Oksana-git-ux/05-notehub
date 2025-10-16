@@ -23,10 +23,6 @@ interface FetchNotesParams {
     perPage?: number;
 }
 
-interface DeleteNoteResponse {
-    deletedNote: Note;
-}
-
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {

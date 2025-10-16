@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage as FormikError } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 
-import { createNote } from '../../api/noteService';
+import { createNote } from '../../services/noteService';
 import { type NewNote, type NoteTag } from '../../types/note';
 import css from './NoteForm.module.css';
 

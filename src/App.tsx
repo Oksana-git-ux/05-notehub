@@ -3,8 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useDebounce } from 'use-debounce';
 import toast, { Toaster } from 'react-hot-toast'; 
 
-import { fetchNotes, type NotesQueryResult } from './api/noteService';
-//import { fetchNotes, type NotesQueryResult } from '../api/noteService';
+import { fetchNotes, type NotesQueryResult } from './services/noteService';
 import SearchBox from './components/SearchBox/SearchBox'
 import Pagination from './components/Pagination/Pagination';
 import NoteList from './components/NoteList/NoteList';

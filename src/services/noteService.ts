@@ -5,8 +5,7 @@ const BASE_URL = 'https://notehub-public.goit.study/api';
 const TOKEN = import.meta.env.VITE_NOTEHUB_TOKEN;
 
 interface FetchNotesResponse {
-    items: Note[];
-    page: number;
+    notes: Note[];
     perPage: number;
     total: number;
     totalPages: number;
@@ -49,7 +48,7 @@ export async function fetchNotes({
     });
 
     return {
-        notes: response.data.items,
+        notes: response.data.notes,
         totalPages: response.data.totalPages,
         totalNotes: response.data.total,
     };
@@ -62,9 +61,9 @@ export async function createNote(noteData: NewNote): Promise<Note> {
     return response.data;
 }
 
-export async function deleteNote(noteId: string): Promise<DeleteNoteResponse> {
+export async function deleteNote(noteId: string): Promise<Note> {
     if (!TOKEN) throw new Error("API Token is missing.");
     
-    const response = await axiosInstance.delete<DeleteNoteResponse>(`/notes/${noteId}`);
+    const response = await axiosInstance.delete<Note>(`/notes/${noteId}`);
     return response.data;
 }

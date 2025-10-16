@@ -7,6 +7,7 @@ import css from './NoteList.module.css';
 
 interface NoteListProps {
     notes: Note[];
+    currentPage: number;
 }
 
 const NoteList: React.FC<NoteListProps> = ({ notes }) => {

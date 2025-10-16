@@ -77,7 +77,8 @@ const App: React.FC = () => {
                 {isError && <ErrorMessage message={error?.message} />}
                 
                 {shouldRenderList && (
-                    <NoteList notes={notes} />
+                    <NoteList notes={notes}
+                    currentPage={page}/>
                 )}
                 
                 {!isFetching && !isError && notes.length === 0 && (

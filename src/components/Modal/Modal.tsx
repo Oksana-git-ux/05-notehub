@@ -12,12 +12,21 @@ const modalRoot = document.getElementById('modal-root') as HTMLElement;
 const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
 
     useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.code === 'Escape') {
+                onClose();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        
         document.body.style.overflow = 'hidden';
 
         return () => {
+            window.removeEventListener('keydown', handleKeyDown);
             document.body.style.overflow = 'unset';
         };
-    }, []);
+    }, [onClose]);
 
     const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
